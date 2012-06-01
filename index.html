@@ -30,10 +30,10 @@
 		<script>
 		//animated divs ready?
 
-		//$(document).delegate("test", "pagebeforeshow", function(){
-		$(function() {
+		$(document).delegate("test", "pagebeforeshow", function(){
+		//$(function() {
 		
-			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length());
+			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
