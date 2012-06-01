@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
 		
 		<style>
-			.ui-anim-move-left { width: 145px; height: 260px; padding: 0.4em; position: relative; float: left;}
+			.ui-anim-move-left { width: 145px; height: 260px; margin: 0.4em; position: relative; float: left; background-color:#f00;}
 		</style>
 		<link rel="stylesheet" href="assets/js/jquery.mobile-1.1.0/jquery.mobile-1.1.0.min.css" />
 		
@@ -28,88 +28,54 @@
 		<script type="text/javascript" src="assets/js/TimelineLite.min.js"></script>
 		
 		<script>
-		//animated divs ready?
+		
+		$(document).delegate("#test", "pageinit", function(){
+			var divs = [];
+			container = document.getElementById("container")
+			
+			//animated divs ready?
+			function createDivs() {
+				var i = 6;
+				var newDiv;
+				while (--i > -1) {
+					newDiv = document.createElement("div");
+					newDiv.className = "ui-anim-move-left";
+					newDiv.id = "anim" + i;
+					container.appendChild(newDiv);
+					divs.push(newDiv);
+				}	
+			} 
+			
+			$(document).delegate("#anim_button", "click", function(){
+			
+				//alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
+				var tl = new TimelineLite();
+				//tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+				tl.staggerFrom( divs, 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+			});		
 
-		$(document).delegate("test", "pagebeforeshow", function(){
-		//$(function() {
-		
+			createDivs();
+			
 			//alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
 			var tl = new TimelineLite();
-			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
-		});
-		$(document).delegate("#anim_button", "click", function(){
-		//$(function() {
-		
-			//alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
-			var tl = new TimelineLite();
-			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+			//tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+			tl.staggerFrom( divs, 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+
 		});
 
 		</script>
 	</head>
 	<body>
  		
-		<div id="test" data-role="page">		
+		<div id="test" data-role="page">
+		
 			<div data-role="header">
 				<h1>Page Title</h1>
 				<div id="title_bar">Phone<strong>Gap</strong> Training App</div>
 			</div><!-- /header -->
 
-			<div data-role="content" class="content">	
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>	
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>
-				<div class="ui-anim-move-left">
-					<ul data-role="listview" data-inset="true" data-filter="true">
-						<li><a href="#">Acura</a></li>
-						<li><a href="#">Audi</a></li>
-						<li><a href="#">BMW</a></li>
-						<li><a href="#">Cadillac</a></li>
-						<li><a href="#">Ferrari</a></li>
-					</ul>		
-				</div>
+			<div id="container" data-role="content" class="content">	
+
 				<div style="clear:both;"></div>
 				<div id="welcome" class="view">
 				  <div class="app_button" id="anim_button">anim</div>
