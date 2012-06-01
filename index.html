@@ -37,7 +37,7 @@
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
-		$(document).delegate("anim", "click", function(){
+		$(document).delegate("#anim_button", "click", function(){
 		//$(function() {
 		
 			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
