@@ -37,6 +37,14 @@
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
+		$(document).delegate("anim", "click", function(){
+		//$(function() {
+		
+			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
+			var tl = new TimelineLite();
+			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
+		});
+
 		</script>
 	</head>
 	<body>
@@ -87,6 +95,7 @@
 
 				<div style="clear:both;"></div>
 				<div id="welcome" class="view">
+				  <div class="app_button" id="anim_button">anim</div>
 				  <div class="app_button" id="map_button">Show My Location</div>
 				  <div class="app_button" id="settings_button">Settings</div>
 				</div>
