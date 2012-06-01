@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="assets/css/master.css" type="text/css" media="screen" />
 		
 		<style>
-			.ui-anim-move-left { width: 240px; height: 260px; padding: 0.4em; position: relative; float: left;}
+			.ui-anim-move-left { width: 145px; height: 260px; padding: 0.4em; position: relative; float: left;}
 		</style>
 		<link rel="stylesheet" href="assets/js/jquery.mobile-1.1.0/jquery.mobile-1.1.0.min.css" />
 		
@@ -33,14 +33,14 @@
 		$(document).delegate("test", "pagebeforeshow", function(){
 		//$(function() {
 		
-			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
+			//alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
 		$(document).delegate("#anim_button", "click", function(){
 		//$(function() {
 		
-			alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
+			//alert("animar windows width:"+$(window).width()+" itens:"+ $(".ui-anim-move-left").length);
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
@@ -92,7 +92,24 @@
 						<li><a href="#">Ferrari</a></li>
 					</ul>		
 				</div>
-
+				<div class="ui-anim-move-left">
+					<ul data-role="listview" data-inset="true" data-filter="true">
+						<li><a href="#">Acura</a></li>
+						<li><a href="#">Audi</a></li>
+						<li><a href="#">BMW</a></li>
+						<li><a href="#">Cadillac</a></li>
+						<li><a href="#">Ferrari</a></li>
+					</ul>		
+				</div>
+				<div class="ui-anim-move-left">
+					<ul data-role="listview" data-inset="true" data-filter="true">
+						<li><a href="#">Acura</a></li>
+						<li><a href="#">Audi</a></li>
+						<li><a href="#">BMW</a></li>
+						<li><a href="#">Cadillac</a></li>
+						<li><a href="#">Ferrari</a></li>
+					</ul>		
+				</div>
 				<div style="clear:both;"></div>
 				<div id="welcome" class="view">
 				  <div class="app_button" id="anim_button">anim</div>
