@@ -33,7 +33,8 @@
 			var divs = [];
 			container = document.getElementById("container")
 			
-			//animated divs ready?
+			//should have access directly to dom elements
+			//animating through jquery selectors cause to navigate dom every animate() step, loses performance
 			function createDivs() {
 				var i = 6;
 				var newDiv;
