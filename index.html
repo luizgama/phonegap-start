@@ -31,6 +31,7 @@
 		//js ready
 		$(function() {
 			
+			alert("jquery ready");
 			var tl = new TimelineLite();
 			tl.staggerFrom( $(".ui-anim-move-left"), 1, {css:{left:$(window).width()}, ease:Elastic.easeOut.config(0.5, 1)}, 0.1);
 		});
